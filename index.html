@@ -3029,7 +3029,17 @@ let wishlist = [];
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Straat + Huisnummer *</label>
+                    <div class="form-group">
+    <label>Land *</label>
+    <select name="Land" id="checkoutCountry" class="form-control" required onchange="updateShippingCost()">
+        <option value="BE">🇧🇪 België</option>
+        <option value="NL">🇳🇱 Nederland</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Straat + Huisnummer *</label>
+    <input type="text" name="Adres" class="form-control" required>
+</div>
                     <input type="text" name="Adres" class="form-control" required>
                 </div>
                 <div class="form-row">
@@ -3327,16 +3337,40 @@ function cartTotal() {
 // CHECKOUT SYSTEEM
 // ══════════════════════════════════════
 
-function calcShipping() {
+function calcShipping(country = 'BE') {
     // Bereken totaalgewicht: alle producten + 5g voor luchtkussen/envelop
     const totalWeight = cart.reduce((sum, item) => {
         return sum + ((item.weight || 5) * item.qty);
     }, 0) + 5; // +5g voor envelop/luchtkussen
     
-    // Verzendkosten op basis van gewicht
+    // Verzendkosten op basis van land + gewicht
+    if (country === 'NL') {
+        // Nederland (internationaal bpost)
+        if (totalWeight <= 50) return 3.07;
+        if (totalWeight <= 100) return 9.21;
+        return 15.35;
+    }
+    // België (standaard)
     if (totalWeight <= 50) return 1.68;
     if (totalWeight <= 100) return 3.36;
     return 5.04;
+}
+
+function updateShippingCost() {
+    const country = document.getElementById('checkoutCountry').value;
+    const subtotaal = cartTotal();
+    const verzending = calcShipping(country);
+    const totaal = subtotaal + verzending;
+    
+    document.getElementById('checkoutShipping').textContent = `€${verzending.toFixed(2)}`;
+    document.getElementById('checkoutTotal').textContent = `€${totaal.toFixed(2)}`;
+    
+    let details = cart.map(item => `• ${item.qty}x ${item.name}${item.size !== 'ONE_SIZE' ? ` (maat ${item.size})` : ''} - ${item.price}`).join('\n');
+    const landNaam = country === 'NL' ? 'Nederland' : 'België';
+    details += `\n\nSubtotaal: €${subtotaal.toFixed(2)}\nVerzending naar ${landNaam}: €${verzending.toFixed(2)}\nTOTAAL: €${totaal.toFixed(2)}`;
+    
+    document.getElementById('formOrderDetails').value = details;
+    document.getElementById('formOrderTotal').value = `€${totaal.toFixed(2)}`;
 }
 
 function generateOrderNumber() {
@@ -3351,8 +3385,8 @@ function checkout() {
     
     // Bestelling overzicht opbouwen
     const subtotaal = cartTotal();
-const verzending = calcShipping();
-    const totaal = subtotaal + verzending;
+const country = document.getElementById('checkoutCountry')?.value || 'BE';
+const verzending = calcShipping(country);    const totaal = subtotaal + verzending;
     
     // Items tonen in checkout scherm
     document.getElementById('checkoutItems').innerHTML = cart.map(item => `
@@ -3397,8 +3431,7 @@ document.addEventListener('DOMContentLoaded', () => {
         orderForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('checkoutSubmitBtn');
-            const originalText = btn.textContent;
-            btn.textContent = 'Bezig...';
+                        btn.textContent = 'Bezig...';
             btn.disabled = true;
             
             try {
@@ -3409,11 +3442,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 if (response.ok) {
-    const bestelnummer = document.getElementById('formOrderNumber').value;
-    const totaal = document.getElementById('formOrderTotal').value;
-    
-    document.getElementById('successOrderNumber').textContent = bestelnummer;
-document.getElementById('successTotal').textContent = totaal;
+                    const bestelnummer = document.getElementById('formOrderNumber').value;
+                    const totaal = document.getElementById('formOrderTotal').value;
+                    
+                    document.getElementById('successOrderNumber').textContent = bestelnummer;
+                    document.getElementById('successTotal').textContent = totaal;
                     
                     closeCheckout();
                     document.getElementById('successModal').classList.add('open');
