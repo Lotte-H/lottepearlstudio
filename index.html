@@ -2680,7 +2680,7 @@ let wishlist = [];
         <div class="info-card fade" onclick="openInfoModal('verzending')">
             <div class="info-card-icon">🚚</div>
             <h3>Verzending & Retour</h3>
-            <p>Snelle verzending via bpost — €1.68 in België</p>
+            <p>Snelle verzending via bpost </p>
             <span class="info-card-link">Meer info →</span>
         </div>
         <div class="info-card fade" onclick="openInfoModal('maatgids')">
@@ -3343,18 +3343,18 @@ function calcShipping(country = 'BE') {
         return sum + ((item.weight || 5) * item.qty);
     }, 0) + 5; // +5g voor envelop/luchtkussen
     
-    // Verzendkosten op basis van land + gewicht
+    // Alle bestellingen worden als pakje verzonden
+    // (envelop met luchtkussen is al >3mm dik)
     if (country === 'NL') {
-        // Nederland (internationaal bpost)
-        if (totalWeight <= 50) return 3.07;
-        if (totalWeight <= 100) return 9.21;
-        return 15.35;
+        // Nederland
+        if (totalWeight <= 100) return 9.20;
+        return 15.35; // 100g tot 350g
     }
-    // België (standaard)
-    if (totalWeight <= 50) return 1.68;
-    if (totalWeight <= 100) return 3.36;
-    return 5.04;
+    // België
+    if (totalWeight <= 100) return 5.04;
+    return 7.56; // 100g tot 350g
 }
+
 
 function updateShippingCost() {
     const country = document.getElementById('checkoutCountry').value;
@@ -3654,19 +3654,35 @@ function doSearch() {
 // INFO MODAL
 // ══════════════════════════════════════
 const infoContent = {
-    verzending: `
-        <span class="info-eyebrow">Verzending & Retour</span>
-        <h2>Verzending & Retour</h2>
-        <p><strong>Verzending 📮</strong><br>Alle bestellingen worden zorgvuldig ingepakt en via bpost verstuurd. Verzending kost <strong> <50 gram -> €1.68</strong> ,<strong> >50 gram -> €3.36</strong> , <strong> >100 gram -> €5.04 </strong> binnen België.</p>
-        <p>Zodra je bestelling verzonden is, krijg je van mij een berichtje via Instagram met een track & trace code.</p>
-        <p><strong>Levertijd binnen België:</strong></p>
-        <ul>
-            <li>1 tot 3 werkdagen na verzending (bpost)</li>
-            <li>Bestellingen worden binnen 2-5 dagen verzonden nadat de betaling is ontvangen</li>
-        </ul>
-        <p><strong>Retour 🔄</strong><br>Omdat elk armbandje met de hand voor jou gemaakt wordt, is retourneren helaas niet mogelijk. Is er iets mis met je bestelling? Stuur me dan snel een berichtje via Instagram — ik los het op! ♡</p>
-        <a href="https://www.instagram.com/lottepearlstudio" target="_blank" class="info-modal-btn">Contact via Instagram</a>
-    `,
+   verzending: `
+    <span class="info-eyebrow">Verzending & Retour</span>
+    <h2>Verzending & Retour</h2>
+    <p><strong>Verzending 📮</strong><br>Alle bestellingen worden zorgvuldig ingepakt en via bpost als pakje verstuurd.</p>
+    
+    <p><strong>🇧🇪 Verzending binnen België</strong></p>
+    <ul>
+        <li>Tot 100 gram → <strong>€5,04</strong></li>
+        <li>100 tot 350 gram → <strong>€7,56</strong></li>
+    </ul>
+    
+    <p><strong>🇳🇱 Verzending naar Nederland</strong></p>
+    <ul>
+        <li>Tot 100 gram → <strong>€9,20</strong></li>
+        <li>100 tot 350 gram → <strong>€15,35</strong></li>
+    </ul>
+    
+    <p>Zodra je bestelling verzonden is, krijg je van mij een berichtje via Instagram of email met een track & trace code.</p>
+    
+    <p><strong>Levertijd:</strong></p>
+    <ul>
+        <li><strong>België:</strong> 1 tot 3 werkdagen na verzending</li>
+        <li><strong>Nederland:</strong> 2 tot 5 werkdagen na verzending</li>
+        <li>Bestellingen worden binnen 2-5 dagen verzonden nadat de betaling is ontvangen</li>
+    </ul>
+    
+    <p><strong>Retour 🔄</strong><br>Omdat elk armbandje met de hand voor jou gemaakt wordt, is retourneren helaas niet mogelijk. Is er iets mis met je bestelling? Stuur me dan snel een berichtje via Instagram — ik los het op! ♡</p>
+    <a href="https://www.instagram.com/lottepearlstudio" target="_blank" class="info-modal-btn">Contact via Instagram</a>
+`,
     maatgids: `
         <span class="info-eyebrow">Maatgids</span>
         <h2>Welke maat past bij jou?</h2>
@@ -3776,10 +3792,10 @@ voorwaarden: `
     
     <p><strong>4. Verzending</strong></p>
     <ul>
-        <li>Verzending via bpost in België</li>
-        <li>Verzendkosten: 1,68 euro (1-5 armbandjes), 3,36 euro (6-10 armbandjes), 5,04 euro (10+ armbandjes)</li>
-        <li>Ik ben niet aansprakelijk voor verlies of schade door bpost</li>
-    </ul>
+        <li>Verzending via bpost naar België en Nederland</li>
+<li><strong>België:</strong> €5,04 (≤100g), €7,56 (100-350g)</li>
+<li><strong>Nederland:</strong> €9,20 (≤100g), €15,35 (100-350g)</li>
+<li>Ik ben niet aansprakelijk voor verlies of schade door bpost</li>
     
     <p><strong>5. Prijzen</strong></p>
     <p>Alle prijzen zijn inclusief eventuele kosten.</p>
