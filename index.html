@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-BE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotte Pearl Studio | Handgemaakte Juwelen</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lotte Pearl Studio | Handgemaakte Juwelen</title>
-<meta name="description" content="Handgemaakte Juwelen met liefde gemaakt door Lotte. Uniek design, huidvriendelijke materialen, custom orders mogelijk. Vanaf €5,49 🌸">
-<meta name="keywords" content="handgemaakte juwelen, custom armbandjes, pearl armbandjes, bohemian, beaded, België">
+    <title>Handgemaakte Armbandjes & Juwelen | Lotte Pearl Studio</title>
+<meta name="description" content="Ontdek unieke handgemaakte armbandjes, parel armbanden en juwelen bij Lotte Pearl Studio 🌸 Custom orders mogelijk, verzending in heel België en Nederland. Elk stukje met liefde gemaakt.">
+<meta name="keywords" content="handgemaakte armbandjes, handgemaakte juwelen, custom armbandjes, parel armband, pearl bracelet, bohemian armbandjes, kralen armbandjes, juwelen op maat, gepersonaliseerde armbandjes, unieke sieraden, handmade jewelry, charm armbandjes, oorbellen handgemaakt, cadeau vrouw juwelen, armbandje kopen, armbandjes online, beaded bracelet, juwelen België, juwelen Nederland">
 <meta name="author" content="Lotte Pearl Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lottepearlstudio.github.io">
 
 <!-- Favicon (bloemetje in tabblad) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
 
 <!-- Open Graph (voor delen op Instagram/WhatsApp) -->
-<meta property="og:title" content="Lotte Pearl Studio | Handgemaakte Juwelen">
-<meta property="og:description" content="Handgemaakte juwelen met liefde gemaakt. Uniek design, huidvriendelijke materialen. 🌸">
+<meta property="og:title" content="Handgemaakte Armbandjes & Juwelen | Lotte Pearl Studio">
+<meta property="og:description" content="Ontdek unieke handgemaakte armbandjes en juwelen 🌸 Custom orders mogelijk, verzending in België en Nederland.">
+<meta property="og:site_name" content="Lotte Pearl Studio">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lottepearlstudio.github.io">
 <meta property="og:image" content="images/bracelet1 foto2.jpeg">
@@ -25,6 +26,69 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lotte Pearl Studio">
 <meta name="twitter:description" content="Handgemaakte juwelen met liefde">
+<!-- ═══════════════════════════════════════
+     STRUCTURED DATA (SEO)
+════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "Lotte Pearl Studio",
+  "description": "Handgemaakte armbandjes, parel armbanden en juwelen. Custom orders mogelijk, verzending in België en Nederland.",
+  "url": "https://lottepearlstudio.github.io",
+  "image": "https://lottepearlstudio.github.io/images/bracelet1%20foto2.jpeg",
+  "priceRange": "€3 - €10",
+  "paymentAccepted": "Bank transfer",
+  "currenciesAccepted": "EUR",
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Belgium"
+    },
+    {
+      "@type": "Country",
+      "name": "Netherlands"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/lottepearlstudio"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Lotte Pearl Studio",
+  "url": "https://lottepearlstudio.github.io",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://lottepearlstudio.github.io/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Lotte Pearl Studio",
+  "url": "https://lottepearlstudio.github.io",
+  "logo": "https://lottepearlstudio.github.io/images/bracelet1%20foto2.jpeg",
+  "description": "Handgemaakte juwelen met liefde gemaakt. Uniek design en huidvriendelijke materialen.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "lottepearlstudio@outlook.com",
+    "contactType": "Customer Service",
+    "availableLanguage": ["Dutch", "English"]
+  },
+  "sameAs": [
+    "https://www.instagram.com/lottepearlstudio"
+  ]
+}
+</script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G210JN3WEQ"></script>
@@ -2892,7 +2956,7 @@ let wishlist = [];
         <button class="lightbox-close" onclick="closeLightbox()">✕</button>
         <div class="lightbox-image-wrap">
             <button class="lightbox-arrow lightbox-prev" onclick="prevImage()">‹</button>
-            <img class="lightbox-image" id="lightboxImage" src="" alt="" onerror="this.style.display='none';document.getElementById('lightboxPlaceholder').style.display='flex';">
+<img class="lightbox-image" id="lightboxImage" src="" alt="Handgemaakte armband — Lotte Pearl Studio" onerror="this.style.display='none';document.getElementById('lightboxPlaceholder').style.display='flex';">
             <div class="lightbox-placeholder" id="lightboxPlaceholder" style="display:none;">
                 foto volgt binnenkort ✨
             </div>
@@ -3095,7 +3159,7 @@ function renderProducts(filter) {
     grid.innerHTML = list.map(p => `
         <div class="product-card fade" data-category="${p.category}" onclick="openLightbox(${p.id})">
             <div class="product-img-wrap">
-                <img src="${p.images[0]}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+<img src="${p.images[0]}" alt="Handgemaakte ${p.category.toLowerCase()} armband ${p.name} — Lotte Pearl Studio" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="product-placeholder" style="display:none;">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg>
                     foto volgt binnenkort
@@ -3206,7 +3270,7 @@ function updateLightboxImage() {
 function updateThumbs() {
     document.getElementById('lightboxThumbs').innerHTML = currentProduct.images.map((img, i) => `
         <div class="lightbox-thumb ${i === currentImageIndex ? 'active' : ''}" onclick="jumpToImage(${i})">
-            <img src="${img}" alt="thumb ${i+1}" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=thumb-placeholder></div>';">
+       <img src="${img}" alt="${currentProduct.name} foto ${i+1} — Handgemaakte juwelen Lotte Pearl Studio" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=thumb-placeholder></div>';">
         </div>
     `).join('');
 }
@@ -3252,7 +3316,7 @@ function updateRelatedProducts() {
     document.getElementById('lightboxRelatedGrid').innerHTML = related.map(p => `
         <div class="related-card" onclick="openLightbox(${p.id})">
             <div class="related-card-img">
-                <img src="${p.images[0]}" alt="${p.name}" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=thumb-placeholder></div>';">
+ <img src="${p.images[0]}" alt="Handgemaakte ${p.category.toLowerCase()} ${p.name} — Lotte Pearl Studio" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=thumb-placeholder></div>';">
             </div>
             <div class="related-card-name">${p.name}</div>
             <div class="related-card-price">${p.price}</div>
