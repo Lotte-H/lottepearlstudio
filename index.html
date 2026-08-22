@@ -8,7 +8,7 @@
 <meta name="keywords" content="handgemaakte armbandjes, handgemaakte juwelen, custom armbandjes, parel armband, pearl bracelet, bohemian armbandjes, kralen armbandjes, juwelen op maat, gepersonaliseerde armbandjes, unieke sieraden, handmade jewelry, charm armbandjes, oorbellen handgemaakt, cadeau vrouw juwelen, armbandje kopen, armbandjes online, beaded bracelet, juwelen België, juwelen Nederland">
 <meta name="author" content="Lotte Pearl Studio">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.lottepearlstudio.be">
+<link rel="canonical" href="https://lottepearlstudio.github.io">
 
 <!-- Favicon (bloemetje in tabblad) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
@@ -35,7 +35,7 @@
   "@type": "Store",
   "name": "Lotte Pearl Studio",
   "description": "Handgemaakte armbandjes, parel armbanden en juwelen. Custom orders mogelijk, verzending in België en Nederland.",
-  "url": "https://www.lottepearlstudio.be",
+  "url": "https://lottepearlstudio.github.io",
   "image": "https://lottepearlstudio.github.io/images/bracelet1%20foto2.jpeg",
   "priceRange": "€3 - €10",
   "paymentAccepted": "Bank transfer",
@@ -61,7 +61,7 @@
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Lotte Pearl Studio",
-  "url": "https://www.lottepearlstudio.be",
+  "url": "https://lottepearlstudio.github.io",
   "potentialAction": {
     "@type": "SearchAction",
     "target": "https://lottepearlstudio.github.io/?q={search_term_string}",
@@ -75,7 +75,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Lotte Pearl Studio",
-  "url": "https://www.lottepearlstudio.be",
+  "url": "https://lottepearlstudio.github.io",
   "logo": "https://lottepearlstudio.github.io/images/bracelet1%20foto2.jpeg",
   "description": "Handgemaakte juwelen met liefde gemaakt. Uniek design en huidvriendelijke materialen.",
   "contactPoint": {
@@ -3072,7 +3072,7 @@ let wishlist = [];
 
         <div class="checkout-form-section">
             <h3 class="checkout-title">Jouw gegevens</h3>
-            <form id="orderForm" action="https://formspree.io/f/xaqrjldk" method="POST">
+            <form id="orderForm" action="https://formspree.io/f/xoeabkdo" method="POST">
                 <input type="hidden" name="Bestelnummer" id="formOrderNumber">
                 <input type="hidden" name="Bestelling_Details" id="formOrderDetails">
                 <input type="hidden" name="Totaalbedrag" id="formOrderTotal">
@@ -3132,20 +3132,24 @@ let wishlist = [];
         <button class="checkout-close" onclick="closeSuccess()">✕</button>
         <div class="success-icon">⏳</div>
         <h3 class="checkout-title">Bijna klaar — nog 1 stap!</h3>
-        <p style="color: var(--gray); font-size: 14px; margin-bottom: 15px;">Je bestelling is goed ontvangen 🌸<br><strong style="color: var(--deep-rose);">Maar je bestelling wordt pas verzonden na betaling.</strong></p>
+        <p style="color: var(--gray); font-size: 14px; margin-bottom: 15px;">
+            Je bestelling is geplaatst! 🌸<br>
+            <strong style="color: var(--deep-rose);">Maak nu de betaling over via je bank-app.</strong>
+        </p>
         
-        <div style="background: #FFF3CD; border: 1px solid #FFD666; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 13px; color: #856404;">
-            👉 <strong>Volg de onderstaande stappen om te betalen</strong>
+        <div style="background: #FFF3CD; border: 1px solid #FFD666; padding: 12px 15px; border-radius: 6px; margin: 15px 0; font-size: 13px; color: #856404; text-align: left;">
+            👉 <strong>Wat gebeurt er na je betaling?</strong><br>
+            Zodra ik jouw overschrijving op mijn bankrekening zie staan, stuur ik je een <strong>bevestigingsbericht dat je betaling binnen is</strong> en dat je juweeltjes worden klaargemaakt!
         </div>
         
         <div class="payment-box">
-    <p style="text-align: center; margin-bottom: 15px; font-weight: 600; color: var(--dark);">💳 BETALINGSINSTRUCTIES</p>
-    <p style="margin-bottom:15px;">Maak het totaalbedrag over via je bank-app. Klik op een waarde om te kopiëren:</p>
-    <p><strong>Bedrag:</strong> <span class="copyable" id="successTotal" onclick="copyToClipboard(this, this.textContent)">€0.00</span></p>
-    <p><strong>IBAN:</strong> <span class="copyable" onclick="copyToClipboard(this, 'BE03 7310 7843 5484')">BE03 7310 7843 5484</span></p>
-    <p><strong>Naam:</strong> <span class="copyable" onclick="copyToClipboard(this, 'Lotte Pearl Studio')">Lotte Pearl Studio</span></p>
-    <p><strong>Mededeling:</strong> <span class="copyable" onclick="copyToClipboard(this, document.getElementById('successOrderNumber').textContent)"><span id="successOrderNumber"></span></span></p>
-</div>
+            <p style="text-align: center; margin-bottom: 15px; font-weight: 600; color: var(--dark);">💳 BETALINGSINSTRUCTIES</p>
+            <p style="margin-bottom:15px;">Maak het totaalbedrag over via je bank-app. Klik op een waarde om te kopiëren:</p>
+            <p><strong>Bedrag:</strong> <span class="copyable" id="successTotal" onclick="copyToClipboard(this, this.textContent)">€0.00</span></p>
+            <p><strong>IBAN:</strong> <span class="copyable" onclick="copyToClipboard(this, 'BE03 7310 7843 5484')">BE03 7310 7843 5484</span></p>
+            <p><strong>Naam:</strong> <span class="copyable" onclick="copyToClipboard(this, 'Lotte Pearl Studio')">Lotte Pearl Studio</span></p>
+            <p><strong>Mededeling:</strong> <span class="copyable" onclick="copyToClipboard(this, document.getElementById('successOrderNumber').textContent)"><span id="successOrderNumber"></span></span></p>
+        </div>
         
         <p style="font-size: 12px; color: var(--deep-rose); font-weight: 500;">⚠️ Let op: Zonder de juiste mededeling of het exacte bedrag kan ik je bestelling niet verzenden.</p>
     </div>
